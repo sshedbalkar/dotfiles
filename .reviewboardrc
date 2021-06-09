@@ -1,0 +1,9 @@
+ALIASES = {
+    'post-this': 'post HEAD',
+    'push': '!git push'
+}
+OPEN_BROWSER = True
+STAMP_WHEN_POSTING = True
+USERNAME = "santosh.shedbalkar"
+PASSWORD = "Cr1ck135@ptw9"
+RBTOOLS_EDITOR = "\Applications\Visual Studio Code.app"

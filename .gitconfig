@@ -1,0 +1,8 @@
+[user]
+	name = Santosh Shedbalkar
+	# email = sanoysyg@gmail.com
+[color]
+	ui = true
+[core]
+    editor = vim
+    whitespace = indent-with-non-tab, trailing-space, cr-at-eol

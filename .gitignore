@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Credential files
+*credential*
+*.pem
+*.ppk
+*.pub
+
+# Specific files
+.DS_Store
+known_hosts
