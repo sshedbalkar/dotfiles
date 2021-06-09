@@ -16,10 +16,10 @@ esac
 # RB Tools Bash Autocomplete
 source ~/rbt_bash_autocomplete.sh
 
-function git() {
-  case $* in
-    -lg1 ) shift 1; command git log --all --decorate --oneline --graph ;;
-    -lg2 ) shift 1; command git log --graph --abbrev-commit --decorate --date=relative --all ;;
-    * ) command git "$@" ;;
-  esac
-}
+# function git() {
+#   case $* in
+#     -lg1 ) shift 1; command git log --all --decorate --oneline --graph ;;
+#     -lg2 ) shift 1; command git log --graph --abbrev-commit --decorate --date=relative --all ;;
+#     * ) command git "$@" ;;
+#   esac
+# }

@@ -4,5 +4,8 @@
 [color]
 	ui = true
 [core]
-    editor = vim
-    whitespace = indent-with-non-tab, trailing-space, cr-at-eol
+        editor = vim
+        whitespace = indent-with-non-tab, trailing-space, cr-at-eol
+[alias]
+	lg1 = log --all --decorate --oneline --graph
+	lg2 = log --graph --abbrev-commit --decorate --date=relative --all
