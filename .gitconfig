@@ -9,3 +9,5 @@
 [alias]
 	lg1 = log --all --decorate --oneline --graph
 	lg2 = log --graph --abbrev-commit --decorate --date=relative --all
+[credential]
+	helper = manager
