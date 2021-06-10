@@ -7,5 +7,5 @@
         editor = vim
         whitespace = indent-with-non-tab, trailing-space, cr-at-eol
 [alias]
-	lg1 = log --all --decorate --oneline --graph
-	lg2 = log --graph --abbrev-commit --decorate --date=relative --all
+	lg1 = log -10 --decorate --oneline --graph
+	lg2 = log --graph --abbrev-commit --decorate --date=relative -10
