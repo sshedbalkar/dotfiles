@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
 fi
 unset color_prompt force_color_prompt
 
@@ -146,4 +146,9 @@ source ~/rbt_bash_autocomplete.sh
 
 # Add SSH keys to the agent
 ssh-add ~/.ssh/id_rsa_santosh.shedbalkar_ptw.pem
-ssh-add ~/.ssh/sanoysyg_rsa.pem
+# ssh-add ~/.ssh/sanoysyg_rsa.pem
+
+# Automatic appending of Git status in Bash prompt
+source /etc/bash_completion.d/git-prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
+PS1=$PS1'$(__git_ps1 "(%s)")\$ '
