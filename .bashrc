@@ -129,7 +129,9 @@ case $_myos in
           # ##### PYthon virtual env settings #####
           # We want to regularly go to our virtual environment directory
           export PYWORKON_HOME=/Volumes/Data/WorkWork/.virtualenvs/py
-          ;;
+	  alias nano='/usr/local/bin/nano'
+          alias vim='/usr/local/bin/vim'
+	  ;;
   *) ;;
 esac
 
@@ -149,6 +151,13 @@ ssh-add ~/.ssh/id_rsa_santosh.shedbalkar_ptw.pem
 # ssh-add ~/.ssh/sanoysyg_rsa.pem
 
 # Automatic appending of Git status in Bash prompt
-source /etc/bash_completion.d/git-prompt
-export GIT_PS1_SHOWDIRTYSTATE=1
-PS1=$PS1'$(__git_ps1 "(%s)")\$ '
+if [ -f /etc/bash_completion.d/git-promp ]; then
+	source /etc/bash_completion.d/git-prompt
+	export GIT_PS1_SHOWDIRTYSTATE=1
+	PS1=$PS1'$(__git_ps1 "(%s)")\$ '
+else
+	parse_git_branch() {
+    		git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	}
+	PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]\$ '
+fi
