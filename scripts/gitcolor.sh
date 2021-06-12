@@ -17,7 +17,7 @@ parse_status () {
     local -n col=$2     # declare a nameref to the variable named by $2
     local -n bits=$3    # declare a nameref to the variable named by $3
     OLDIFS=$IFS
-    local dirty deleted untracked newfile ahead renamed behind
+    local dirty deleted untracked newfile ahead renamed behind committed
     while IFS= read -r line ; do
         case "$line" in
             *modified:* | 'Changes not staged'*)
@@ -27,6 +27,10 @@ parse_status () {
             *deleted:*)
                 deleted='x'
                 col=$(tput setaf 1)
+                ;;
+            *'to be committed:'*)
+                committed='!'
+                col=$(tput setaf 6)
                 ;;
             *'Untracked files:')
                 untracked='?'
@@ -51,7 +55,7 @@ parse_status () {
             *) ;;
         esac
     done < <(printf %s "$1")
-    bits=$dirty$deleted$untracked$newfile$ahead$renamed$behind
+    bits=$dirty$committed$deleted$untracked$newfile$ahead$renamed$behind
     if [[ -z "$bits" ]]; then
         col=$(tput setaf 2)
     else
@@ -62,9 +66,9 @@ parse_status () {
 
 RESET=$(tput sgr0)
 get_full_status() {
-    GIT_STATUS="$(git status 2>&1)"
-    if [[ "$GIT_STATUS" != *'not a git repository'* ]]; then
-        parse_status "$GIT_STATUS" COLOR BITS
+    git_status="$(git status 2>&1)"
+    if [[ "$git_status" != *'not a git repository'* ]]; then
+        parse_status "$git_status" COLOR BITS
         printf '%s' " $COLOR($(git_branch)$BITS)$RESET"
     else
         printf '%s' ""
