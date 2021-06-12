@@ -123,7 +123,16 @@ fi
 _myos="$(uname)"
 
 case $_myos in
-  # Linux) alias ls='ls --color';;
+  Linux)
+	  _linOs="$(uname -r)"
+	  case $_linOs in
+		  wsl|WSL)
+			# Linux in Windows WSL
+			# export PATH=$PATH:/mnt/c/Windows/System32
+			;;
+		  *) ;;
+	  esac	  
+	  ;;
   Darwin) alias vcpkg='/Volumes/Data/WorkWork/vcpkg/vcpkg'
 
           # ##### PYthon virtual env settings #####
@@ -151,13 +160,19 @@ ssh-add ~/.ssh/id_rsa_santosh.shedbalkar_ptw.pem
 # ssh-add ~/.ssh/sanoysyg_rsa.pem
 
 # Automatic appending of Git status in Bash prompt
-if [ -f /etc/bash_completion.d/git-promp ]; then
+if [ -f ~/dotfiles/scripts/gitcolor.sh ]; then
+  source ~/dotfiles/scripts/gitcolor.sh
+  PS1=$PS1'$(get_full_status)'
+elif [ -f /etc/bash_completion.d/git-promp ]; then
 	source /etc/bash_completion.d/git-prompt
 	export GIT_PS1_SHOWDIRTYSTATE=1
-	PS1=$PS1'$(__git_ps1 "(%s)")\$ '
+	PS1=$PS1'$(__git_ps1 "(%s)")'
 else
 	parse_git_branch() {
     		git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 	}
-	PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]\$ '
+	PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
 fi
+
+# Put this at the very end of PS1 to indicate the UID
+PS1=$PS1'\$ '
