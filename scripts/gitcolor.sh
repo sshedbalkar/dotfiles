@@ -9,7 +9,7 @@ git_branch () {
             echo -e "$BRANCH"
         fi
     else
-        echo -n "fatal"
+        echo -n "NotGitBranch"
     fi
 }
 
