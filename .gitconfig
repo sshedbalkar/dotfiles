@@ -39,8 +39,8 @@
 	plus-empty-line-marker-style = normal normal
 	line-numbers-right-format = "{np:^4}│ "
 [core]
-        editor = vim
-        whitespace = indent-with-non-tab, trailing-space, cr-at-eol
+	editor = vim
+	whitespace = indent-with-non-tab, trailing-space, cr-at-eol
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -52,3 +52,4 @@
 	lg1 = log -10 --decorate --oneline --graph
 	lg2 = log --graph --abbrev-commit --decorate --date=relative -10
 	hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+	st = status -s
