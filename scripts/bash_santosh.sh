@@ -31,6 +31,9 @@ case $MYOS in
   *) ;;
 esac
 
+# Start SSH Agent
+eval `ssh-agent -s`
+
 # Add SSH keys to the agent
 # ssh-add ~/.ssh/sanoysyg_rsa.pem
 
