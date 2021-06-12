@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 declare -a JARS=("$SFS_DIR/extensions/__lib__/Bingo_Adventure_Core.jar;~/SFS2X/extensions/__lib__"
 	"$SFS_DIR/extensions/BingoAdventureApp/Bingo_Adventure_App.jar;~/SFS2X/extensions/BingoAdventureApp")
 $ENVNAME

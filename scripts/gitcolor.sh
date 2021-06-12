@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 git_branch () {
     local GITDIR=$(git rev-parse --show-toplevel 2>/dev/null) # Get root directory of git repo

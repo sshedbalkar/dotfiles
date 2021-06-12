@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 # echo "Sourcing bash_santosh.sh"
 declare -a CONFIGFILES=(
@@ -26,7 +26,8 @@ case $MYOS in
         # We want to regularly go to our virtual environment directory
         export PYWORKON_HOME=/Volumes/Data/WorkWork/.virtualenvs/py
 	    alias nano='/usr/local/bin/nano'
-        alias vim='/usr/local/bin/vim'
+            alias vim='/usr/local/bin/vim'
+	    alias bash='/usr/local/bin/bash'
 	  ;;
   *) ;;
 esac

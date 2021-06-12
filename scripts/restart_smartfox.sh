@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 cd /opt/SmartFoxServer_2X/SFS2X
 OLDIFS=$IFS
