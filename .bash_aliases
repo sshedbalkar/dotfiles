@@ -56,3 +56,11 @@ tolower () {
 toupper () {
     sed -e 's/\(.*\)/\U\1/' <<< "$1"
 }
+
+addkey () {
+    if [ -z "$1" ]; then
+        ssh-add ~/.ssh/sanoysyg_rsa.pem
+    else
+        ssh-add $1
+    fi
+}
