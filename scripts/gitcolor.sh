@@ -44,7 +44,7 @@ parse_status () {
                 ahead='^'
                 col=$(tput setaf 6)
                 ;;
-            *'Your branch is behind of '*)
+            *'Your branch is behind '*)
                 behind='v'
                 col=$(tput setaf 6)
                 ;;
