@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 git_branch () {
     local GITDIR=$(git rev-parse --show-toplevel 2>/dev/null) # Get root directory of git repo
@@ -70,7 +70,7 @@ get_full_status() {
     # printf '%s' "$git_status"
     if [[ "$git_status" != *'not a git repository'* ]]; then
         parse_status "$git_status" COLOR BITS
-        printf '%s' " $COLOR($(git_branch)$BITS)$RESET"
+        printf '%s' "$COLOR($(git_branch)$BITS)$RESET"
     else
         printf '%s' ""
     fi

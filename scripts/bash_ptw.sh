@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 ssh-add ~/.ssh/id_rsa_santosh.shedbalkar_ptw.pem
 

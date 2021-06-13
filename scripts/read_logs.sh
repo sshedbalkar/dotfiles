@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 TODAY_DATE=`date +%Y%m%d`
 USER_ID=''
 FROM_DATE=''

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 alias freemem="free -mt"
 alias mkdir="mkdir -pv"
