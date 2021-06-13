@@ -48,6 +48,10 @@
 	required = true
 [sequence]
 	editor = interactive-rebase-tool
+[pull]
+	rebase = false
+[merge]
+	tool = vimdiff
 [alias]
 	lg1 = log -10 --decorate --oneline --graph
 	lg2 = log --graph --abbrev-commit --decorate --date=relative -10
