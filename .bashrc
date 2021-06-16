@@ -116,6 +116,10 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$PATH:$HOME/.local/bin"
 fi
 
+if [ -f ~/dotfiles/scripts/persistentvars.sh ]; then
+  source ~/dotfiles/scripts/persistentvars.sh
+fi
+
 if [ -f ~/dotfiles/scripts/bash_santosh.sh ]; then
   source ~/dotfiles/scripts/bash_santosh.sh
 fi

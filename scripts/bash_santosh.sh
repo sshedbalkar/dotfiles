@@ -2,7 +2,6 @@
 
 # echo "Sourcing bash_santosh.sh"
 declare -a CONFIGFILES=(
-    ~/dotfiles/scripts/persistentvars.sh 
     ~/.bash_aliases
     ~/dotfiles/scripts/bash_ptw.sh
     )
@@ -33,7 +32,7 @@ case $MYOS in
 esac
 
 # Start SSH Agent if it isn't running already
-if [[ -z $SSH_AGENT_PID ]] || [ ! ps -p $SSH_AGENT_PID > /dev/null ]; then
+if [ -z $SSH_AGENT_PID ] || [ ! $(ps -p $SSH_AGENT_PID > /dev/null) ]; then
     eval `ssh-agent -s` > /dev/null
 fi
 
