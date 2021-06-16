@@ -110,6 +110,6 @@ case $MYOSENV in
             fi
         }
 
-        alias winuser='/mnt/c/Users/santosh.shedbalkar'
+        alias cdwinuser='cd /mnt/c/Users/santosh.shedbalkar'
         ;;
 esac
