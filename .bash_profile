@@ -15,6 +15,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+if [ ! -f /usr/local/bin/bash ]; then
+    echo "Creating symlink to /bin/bash at /usr/local/bin/bash ..."
+    sudo ln -s /bin/bash /usr/local/bin/bash
+fi
+
 # include .bashrc if it exists
 if [ -f "$HOME/.bashrc" ]; then
    . "$HOME/.bashrc"

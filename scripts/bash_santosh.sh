@@ -32,29 +32,13 @@ case $MYOS in
   *) ;;
 esac
 
-# Start SSH Agent
-eval `ssh-agent -s`
+# Start SSH Agent if it isn't running already
+if [[ -z $SSH_AGENT_PID ]] || [ ! ps -p $SSH_AGENT_PID > /dev/null ]; then
+    eval `ssh-agent -s` > /dev/null
+fi
 
 # Add SSH keys to the agent
 # ssh-add ~/.ssh/sanoysyg_rsa.pem
-
-# Automatic appending of Git status in Bash prompt
-if [ -f ~/dotfiles/scripts/gitcolor.sh ]; then
-  source ~/dotfiles/scripts/gitcolor.sh
-  PS1=$PS1'$(get_full_status)'
-elif [ -f /etc/bash_completion.d/git-promp ]; then
-	source /etc/bash_completion.d/git-prompt
-	export GIT_PS1_SHOWDIRTYSTATE=1
-	PS1=$PS1'$(__git_ps1 "(%s)")'
-else
-	parse_git_branch() {
-    	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-	}
-	PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
-fi
-
-# Put this at the very end of PS1 to indicate the UID
-PS1=$PS1'\$ '
 
 # Load all config files
 for file1 in ${CONFIGFILES[@]}; do
@@ -64,6 +48,27 @@ for file1 in ${CONFIGFILES[@]}; do
         # echo "sourced file: $file1"
 	fi
 done
+
+# Automatic appending of Git status in Bash prompt
+if [ "$GIT_STATUS_ADDED" -eq 0 ]; then
+    if [ -f ~/dotfiles/scripts/gitcolor.sh ]; then
+    source ~/dotfiles/scripts/gitcolor.sh
+    PS1=$PS1'$(get_full_status)'
+    elif [ -f /etc/bash_completion.d/git-promp ]; then
+        source /etc/bash_completion.d/git-prompt
+        export GIT_PS1_SHOWDIRTYSTATE=1
+        PS1=$PS1'$(__git_ps1 "(%s)")'
+    else
+        parse_git_branch() {
+            git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+        }
+        PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
+    fi
+    GIT_STATUS_ADDED=1
+fi
+
+# Put this at the very end of PS1 to indicate the UID
+PS1=$PS1'\$ '
 
 case $MYOSENV in
     WSL)
@@ -110,6 +115,8 @@ case $MYOSENV in
             fi
         }
 
-        alias cdwinuser='cd /mnt/c/Users/santosh.shedbalkar'
+        shopt -s cdable_vars
+        export dirwinuser=/mnt/c/Users/santosh.shedbalkar
+
         ;;
 esac
