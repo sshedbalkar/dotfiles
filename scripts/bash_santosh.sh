@@ -109,5 +109,7 @@ case $MYOSENV in
                 fi
             fi
         }
+
+        alias winuser='/mnt/c/Users/santosh.shedbalkar'
         ;;
 esac
