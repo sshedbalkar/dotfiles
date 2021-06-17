@@ -3,7 +3,7 @@
 alias freemem="free -mt"
 alias mkdir="mkdir -pv"
 alias wget="wget -c"
-alias myip="curl http://ipecho.net/plain; echo"
+alias myip="curl https://ipecho.net/plain; echo"
 
 extract () {
     if [ -z "$1" ]; then
