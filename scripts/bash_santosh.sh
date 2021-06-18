@@ -6,6 +6,9 @@ declare -a CONFIGFILES=(
     ~/dotfiles/scripts/bash_ptw.sh
     )
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 MYOS="$(uname)"
 MYOSENV=$MYOS
 case $MYOS in
