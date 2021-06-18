@@ -40,16 +40,16 @@ FnCreateSymlink () {
 echo "Changing to the $dir directory"
 cd $dir
 
-OLDIFS=$IFS
-IFS=';'
-for STR in "${EXCLUDE_ARRAY[@]}"; do
-    read -ra ARR <<< "$STR"
-    FILE=$(basename -- "${ARR[0]}")
-    DIR_LOCAL=$(dirname -- "${ARR[0]}")
-    DIR_REMOTE="${ARR[1]}"
-    upload_file $FILE $DIR_LOCAL $DIR_REMOTE
-done
-IFS=$OLDIFS
+# OLDIFS=$IFS
+# IFS=';'
+# for STR in "${EXCLUDE_ARRAY[@]}"; do
+#     read -ra ARR <<< "$STR"
+#     FILE=$(basename -- "${ARR[0]}")
+#     DIR_LOCAL=$(dirname -- "${ARR[0]}")
+#     DIR_REMOTE="${ARR[1]}"
+#     upload_file $FILE $DIR_LOCAL $DIR_REMOTE
+# done
+# IFS=$OLDIFS
 
 for entry in * .[^.]*; do
     if [[ ! "${EXCLUDE_ARRAY[@]}" =~ "$entry" ]]; then
