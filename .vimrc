@@ -12,12 +12,12 @@ filetype off                  " required
 "##############################################################################
 "                                 Defines
 "##############################################################################
-
-" let mapleader = ','
+" Set map leader = ,
+let mapleader = ','
 set path+=**
 syntax enable
 set number
-set relativenumber
+" set relativenumber
 
 " " TextEdit might fail if hidden is not set.
 set hidden
@@ -91,7 +91,6 @@ set smarttab
 set cindent
 
 " enable this to maintain indentation when copying text from anything outside of
-" vim, doesn't work with coc's completion options
 " set paste
 
 "" Show all white characters
@@ -105,13 +104,8 @@ set completeopt=menuone,noinsert,noselect,preview
 " Vim doesn’t read .vimrc files in the current directory, the following setting enables it
 set exrc
 
-" Better display for messages
-set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
 
 set encoding=UTF-8
 filetype plugin indent on
@@ -133,6 +127,16 @@ let s:extpaths=expand("$HOME/.vim/.vim.extpaths")
 if filereadable(s:extpaths)
     execute "source ".s:extpaths
 endif
+
+" Edit Vimrc file in a new buffer
+nnoremap <leader>ve :enew<CR>:e $MYVIMRC<CR>
+
+" Save and Reload Vimrc file
+nnoremap <leader>vr :w<CR>:source $MYVIMRC<CR>:echom ".vimrc reloaded!"<CR>
+
+" Toggle relative line numbers
+nnoremap <leader>rn :set rnu!<CR>
+
 "###############################################################################
 "                               Plugin configs
 "###############################################################################
