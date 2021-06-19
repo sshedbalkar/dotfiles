@@ -7,7 +7,7 @@ declare -A TEMPL_REPO=(
 )
 
 PROJ_NAME="_proj"
-PROJ_TYPE=""
+PROJ_TYPE="cpp"
 
 check_args() {
     if [ "$#" -eq 0 ]; then
