@@ -119,6 +119,10 @@ else
     let $VIMROOT = $HOME."/.vim"
 endif
 
+if !empty(glob("~/dotfiles/scripts/bash_santosh.sh"))
+    " let $BASH_ENV = "~/dotfiles/scripts/bash_santosh.sh"
+endif
+
 " set current vimrc file directory variable
 let $CURR_VIMRC_DIR=expand('<sfile>:p:h:h')
 

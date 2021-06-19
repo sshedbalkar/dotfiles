@@ -50,11 +50,13 @@ extract () {
 
 
 tolower () {
-    sed -e 's/\(.*\)/\L\1/' <<< "$1"
+    # sed -e 's/\(.*\)/\L\1/' <<< "$1"  # Doesn't work in MacOS
+    tr '[:upper:]' '[:lower:]' <<< "$1"
 }
 
 toupper () {
-    sed -e 's/\(.*\)/\U\1/' <<< "$1"
+    # sed -e 's/\(.*\)/\U\1/' <<< "$1"  # Doesn't work in MacOS
+    tr '[:lower:]' '[:upper:]' <<< "$1"
 }
 
 addkey () {
@@ -63,4 +65,8 @@ addkey () {
     else
         ssh-add $1
     fi
+}
+
+tproj () {
+    ~/dotfiles/scripts/templproject.sh $@
 }

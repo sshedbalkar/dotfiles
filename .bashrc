@@ -116,6 +116,9 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$PATH:$HOME/.local/bin"
 fi
 
+# Expand aliases even in non-interactive shells
+shopt -s expand_aliases
+
 if [ -f ~/dotfiles/scripts/persistentvars.sh ]; then
   source ~/dotfiles/scripts/persistentvars.sh
 fi
