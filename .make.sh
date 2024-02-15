@@ -10,7 +10,7 @@
 dir=~/dotfiles                    # dotfiles directory
 
 # List of files and directories not to create symlinks for
-declare -a EXCLUDE_ARRAY=(".make.sh" ".git" ".DS_Store" ".gitignore" "README.md" ".config")
+declare -a EXCLUDE_ARRAY=(".make.sh" ".git" ".DS_Store" ".gitignore" "README.md" ".config" "Code" "images")
 
 declare -A SPL_ARRAY=(["$dir/git"]="~/.config/git"
                     )
