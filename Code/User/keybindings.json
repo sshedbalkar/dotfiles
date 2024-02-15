@@ -1,0 +1,66 @@
+/*
+Useful Shortcuts:
+1. Go Back: ctrl+alt+-
+2. Go Forward: ctrl+shift+-
+3. Toggle maximize current editor group: ctrl+k, ctrl+m
+4. Open KB shortcuts: ctrl+k, ctrl+s
+5. Toggle sidebar/explorer: ctrl+b
+6. Peek definition: ctrl+shift+f10
+*/
+[
+    {
+        "key": "ctrl+shift+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+1",
+        "command": "workbench.action.tasks.runTask",
+        "args": "CMake_uclean",
+        "when": "config.cpp_proj_configured"
+    },
+    {
+        "key": "ctrl+shift+alt+2",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Build_delete",
+        "when": "config.cpp_proj_configured"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.tasks.runTask",
+        "args": "cpp_format_file",
+        "when": "config.cpp_proj_configured && editorTextFocus"
+    },
+    /*
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.tasks.runTask",
+        "args": "lin_format_file"
+    },
+    */
+    {
+        "key": "alt+shift+q alt+shift+right",
+        "command": "workbench.action.moveEditorToNextGroup",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+shift+q alt+shift+left",
+        "command": "workbench.action.moveEditorToPreviousGroup",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+q shift+alt+n",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+m",
+        //"command": "-workbench.action.toggleMaximizeEditorGroup && editor.action.fontZoomIn",
+        "command": "-workbench.action.toggleMaximizeEditorGroup ",
+        "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+    }
+]

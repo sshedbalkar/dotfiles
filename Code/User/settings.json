@@ -1,0 +1,35 @@
+{
+    "cmake.configureOnOpen": true,
+    "linesinfostatusbar.totalDisplayFormat": "Total: %d",
+    "cmake.options.statusBarVisibility": "visible",
+    "cmake.showOptionsMovedNotification": false,
+    "editor.rulers": [80],
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "workbench.colorTheme": "Visual Studio Dark - C++",
+    //"workbench.editor.wrapTabs": true,
+    "workbench.colorCustomizations": {
+        // Refer: https://code.visualstudio.com/api/references/theme-color
+        "[Visual Studio Dark - C++]": {
+            "editor.background": "#020202",
+            "editorGroup.border": "#424242",
+            "sideBar.background": "#020202",
+            "sideBar.border": "#424242",
+            "titleBar.border": "#ff0000",
+            "activityBar.background": "#020202",
+            "editorGroupHeader.tabsBackground": "#424242",
+            "tab.activeBackground": "#0170bb",
+            "tab.unfocusedActiveBackground":"#004A7C",
+            "tab.inactiveBackground": "#151515",
+            "tab.unfocusedInactiveBackground": "#222222",
+            "editorRuler.foreground":"#151515",
+            "window.activeBorder":"#ff0000",
+            "panel.border": "#424242"
+        }
+    },
+    "accessibility.dimUnfocused.enabled": true,
+    "accessibility.dimUnfocused.opacity": 0.8,
+    "editor.fontFamily": "'Consolas', 'Droid Sans Mono', 'monospace', monospace"
+}
