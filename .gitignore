@@ -44,3 +44,7 @@ known_hosts
 # VSCode dirs
 *Storage/
 History/
+
+# SSH
+.ssh/
+!.ssh/config
