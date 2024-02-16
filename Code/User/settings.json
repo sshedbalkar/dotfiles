@@ -3,6 +3,7 @@
     "linesinfostatusbar.totalDisplayFormat": "Total: %d",
     "cmake.options.statusBarVisibility": "visible",
     "cmake.showOptionsMovedNotification": false,
+    "autoHide.autoHideSideBar": true,
     "editor.rulers": [80],
     "editor.renderWhitespace": "all",
     "editor.wordWrap": "on",
