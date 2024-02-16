@@ -6,6 +6,8 @@ Useful Shortcuts:
 4. Open KB shortcuts: ctrl+k, ctrl+s
 5. Toggle sidebar/explorer: ctrl+b
 6. Peek definition: ctrl+shift+f10
+7. Output window: ctrl+k, ctrl+h
+8. Terminal window: ctrl+`
 */
 [
     {
