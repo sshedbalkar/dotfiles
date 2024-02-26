@@ -8,6 +8,7 @@ Useful Shortcuts:
 6. Peek definition: ctrl+shift+f10
 7. Output window: ctrl+k, ctrl+h
 8. Terminal window: ctrl+`
+9. Go to Line: ctrl+g
 */
 [
     {
