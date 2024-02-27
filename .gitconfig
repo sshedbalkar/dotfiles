@@ -1,6 +1,6 @@
 [user]
 	name = Santosh Shedbalkar
-	email = sanoysyg@gmail.com
+	# email = sanoysyg@gmail.com
 [color]
 	ui = auto
 [color "branch"]
@@ -53,7 +53,7 @@
 [merge]
 	tool = vimdiff
 [alias]
-	lg1 = log -10 --decorate --oneline --graph
-	lg2 = log --graph --abbrev-commit --decorate --date=relative -10
-	hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+	lg1 = log -5 --decorate --oneline --graph
+	lg2 = log --graph --abbrev-commit --decorate --date=relative -5
+	# hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
 	st = status -s
