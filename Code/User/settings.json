@@ -9,6 +9,7 @@
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 80,
     "workbench.editor.splitInGroupLayout": "vertical",
+    "workbench.editor.revealIfOpen": true,
     "workbench.colorTheme": "Visual Studio Dark - C++",
     //"workbench.editor.wrapTabs": true,
     "workbench.colorCustomizations": {
