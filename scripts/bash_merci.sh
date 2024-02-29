@@ -1,11 +1,11 @@
 #!/usr/local/bin/bash
 
-cdme2 () {
-    cd ~/WorkWork/MyProjects/cpp/merci_engine_v2/
+cdce () {
+    cd ~/WorkWork/MyProjects/cpp/class_engine/
 }
 
-cdme2e () {
-    cd ~/WorkWork/MyProjects/cpp/merci_engine_v2/bin/32/Debug
+cdcee () {
+    cd ~/WorkWork/MyProjects/cpp/class_engine/bin/32/Debug
 }
 
 cddot () {
