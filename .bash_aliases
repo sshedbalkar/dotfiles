@@ -61,7 +61,7 @@ toupper () {
 
 addkey () {
     if [ -z "$1" ]; then
-        ssh-add ~/.ssh/sanoysyg_rsa.pem
+        ssh-add -q ~/.ssh/sanoysyg_rsa.pem
     else
         ssh-add $1
     fi

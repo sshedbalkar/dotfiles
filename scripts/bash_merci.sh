@@ -11,7 +11,3 @@ cdcee () {
 cddot () {
     cd ~/dotfiles/
 }
-
-addkey () {
-    ssh-add -q ~/.ssh/sanoysyg_rsa.pem
-}
