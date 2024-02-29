@@ -12,10 +12,10 @@ Useful Shortcuts:
 10. Multi-cursor editing: https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor
 11. Go to Bracket: ctrl+shift+\
 12. Toggle Fold: ctrl+k, ctrl+l
-13. Add next occurence to selection: ctrl+d
-14. Skip next occurence from selection: ctrl+k
-15: Go to next occurence: ctrl+f3
-
+13. Add next occurrence to selection: ctrl+d
+14. Skip next occurrence from selection: ctrl+k
+15: Go to next occurrence: ctrl+f3
+16. Select all occurrences: ctrl+shift+l
 
 
 */
