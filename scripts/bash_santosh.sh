@@ -2,7 +2,7 @@
 
 # echo "Sourcing bash_santosh.sh"
 declare -a CONFIGFILES=(
-    ~/.bash_aliases
+    ~/dotfiles/.bash_aliases
     ~/dotfiles/scripts/bash_merci.sh
     )
 
