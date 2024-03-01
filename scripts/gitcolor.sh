@@ -85,7 +85,9 @@ get_full_status() {
             # printf '%s' "$COLOR($(git_branch)$BITS)$RESET"
             # printf 'branch: %s, bits: %s' "$(git_branch)" "$BITS"
             # printf '%s' "$($COLOR \($(git_branch)$BITS\))"
-            printf '%s' "($(git_branch)$BITS)"
+            # printf '%s' "($(git_branch)$BITS)"
+            plain_text='('$(git_branch)$BITS')'
+            printf '%s' "$(Bblue $plain_text)"
             # printf '[\e[0;36m]'"($(git_branch)$BITS)"'[\e[m]'
             # printf "\[\e[0;36m\]($(git_branch)$BITS)\[\033[0m\]"
             # shopt -s checkwinsize

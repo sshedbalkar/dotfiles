@@ -2,6 +2,7 @@
 
 # echo "Sourcing bash_santosh.sh"
 declare -a CONFIGFILES=(
+    ~/dotfiles/scripts/color_fns3.sh
     ~/dotfiles/.bash_aliases
     ~/dotfiles/scripts/bash_merci.sh
     )
