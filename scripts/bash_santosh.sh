@@ -2,6 +2,7 @@
 
 # echo "Sourcing bash_santosh.sh"
 declare -a CONFIGFILES=(
+    ~/dotfiles/scripts/color_fns3.sh
     ~/dotfiles/.bash_aliases
     ~/dotfiles/scripts/bash_merci.sh
     )
@@ -52,22 +53,24 @@ for file1 in ${CONFIGFILES[@]}; do
 done
 
 # Automatic appending of Git status in Bash prompt
-if [ "$GIT_STATUS_ADDED" -eq 0 ]; then
+# if [ "$GIT_STATUS_ADDED" -eq 0 ]; then
     if [ -f ~/dotfiles/scripts/gitcolor.sh ]; then
-    source ~/dotfiles/scripts/gitcolor.sh
-    PS1=$PS1'$(get_full_status)'
+        source ~/dotfiles/scripts/gitcolor.sh
+        GIT_STATUS_ADDED=1
+        # PS1=$PS1'\[\e[0;36m\]$(get_full_status)\[\e[m\]'
     elif [ -f /etc/bash_completion.d/git-promp ]; then
         source /etc/bash_completion.d/git-prompt
         export GIT_PS1_SHOWDIRTYSTATE=1
-        PS1=$PS1'$(__git_ps1 "(%s)")'
+        GIT_STATUS_ADDED=2
+        # PS1=$PS1'$(__git_ps1 "(%s)")'
     else
         parse_git_branch() {
             git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
         }
-        PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
+        GIT_STATUS_ADDED=3
+        # PS1=$PS1'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
     fi
-    GIT_STATUS_ADDED=1
-fi
+# fi
 
 # Put this at the very end of PS1 to indicate the UID
 PS1=$PS1'\$ '
@@ -122,3 +125,34 @@ case $MYOSENV in
 
         ;;
 esac
+
+prompt_with_git() {
+    local status_str=""
+    case "$GIT_STATUS_ADDED" in
+        0)
+            echo -n "case0"
+            status_str=$(basic_prompt)
+            ;;
+        1)
+            # echo -n "case1"
+            # echo "$(basic_prompt)"
+            # echo "$(get_full_status)"
+            status_str=$(basic_prompt)$(get_full_status)
+            # status_str=$(basic_prompt)
+            echo -n "$status_str"
+            ;;
+        2)
+            echo -n "case2"
+            status_str=$(basic_prompt)$(__git_ps1 "(%s)")
+            ;;
+        3)
+            echo -n "case3"
+            status_str=$(basic_prompt)'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
+            ;;
+        *) 
+            echo -n "case*"
+        ;;
+    esac
+    PS1='$status_str\$ '
+}
+PROMPT_COMMAND=prompt_with_git
