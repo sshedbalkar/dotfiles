@@ -156,3 +156,4 @@ prompt_with_git() {
     PS1='$status_str\$ '
 }
 PROMPT_COMMAND=prompt_with_git
+trap 'prompt_with_git' WINCH

@@ -82,10 +82,10 @@ get_full_status() {
         # printf '%s' "$git_status"
         if [[ "$git_status" != *'not a git repository'* ]]; then
             parse_status "$git_status" COLOR BITS
-            printf '%s' "$COLOR($(git_branch)$BITS)$RESET"
+            # printf '%s' "$COLOR($(git_branch)$BITS)$RESET"
             # printf 'branch: %s, bits: %s' "$(git_branch)" "$BITS"
             # printf '%s' "$($COLOR \($(git_branch)$BITS\))"
-            # printf '%s' "($(git_branch)$BITS)"
+            printf '%s' "($(git_branch)$BITS)"
             # printf '[\e[0;36m]'"($(git_branch)$BITS)"'[\e[m]'
             # printf "\[\e[0;36m\]($(git_branch)$BITS)\[\033[0m\]"
             # shopt -s checkwinsize
