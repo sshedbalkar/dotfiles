@@ -2,7 +2,6 @@
 
 # echo "Sourcing bash_santosh.sh"
 declare -a CONFIGFILES=(
-    ~/dotfiles/scripts/color_fns3.sh
     ~/dotfiles/.bash_aliases
     ~/dotfiles/scripts/bash_merci.sh
     )
@@ -147,7 +146,7 @@ prompt_with_git() {
             ;;
         3)
             echo -n "case3"
-            status_str=$(basic_prompt)'\[\033[32m\]$(parse_git_branch)\[\033[00m\]'
+            status_str=$(basic_prompt)'\033[32m$(parse_git_branch)\033[00m'
             ;;
         *) 
             echo -n "case*"
