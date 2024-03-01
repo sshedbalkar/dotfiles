@@ -1,0 +1,23 @@
+[Desktop Entry]
+Name=Terminal
+Comment=Use the command line
+Keywords=shell;prompt;command;commandline;cmd;
+TryExec=gnome-terminal --geometry 100x24+500+0
+Exec=gnome-terminal --geometry 100x24+500+0
+Icon=org.gnome.Terminal
+Type=Application
+Categories=GNOME;GTK;System;TerminalEmulator;
+StartupNotify=true
+StartupWMClass=Gnome-terminal
+X-GNOME-SingleWindow=false
+OnlyShowIn=GNOME;Unity;
+Actions=new-window;preferences;
+X-Ubuntu-Gettext-Domain=gnome-terminal
+
+[Desktop Action new-window]
+Name=New Window
+Exec=gnome-terminal --geometry 80x80+0+0 --window
+
+[Desktop Action preferences]
+Name=Preferences
+Exec=gnome-terminal --preferences
