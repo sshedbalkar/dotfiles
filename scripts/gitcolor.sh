@@ -9,7 +9,7 @@ git_branch () {
             echo -e "$BRANCH"
         fi
     else
-        echo -n "NotGitBranch"
+        echo -e "NotGitBranch"
     fi
 }
 
@@ -18,62 +18,66 @@ parse_status () {
     local -n bits=$3    # declare a nameref to the variable named by $3
     OLDIFS=$IFS
     local dirty deleted untracked newfile ahead renamed behind committed
+    # echo -n $bits
     while IFS= read -r line ; do
         case "$line" in
             *modified:* | 'Changes not staged'*)  # RED
-                dirty='*'
-                color=$(tput setaf 1)
+                dirty="\x2A"    # 2A is hex code for '*'
+                # color=$(tput setaf 1)
                 # color=Tred
                 ;;
             *deleted:*)  # RED
                 deleted='x'
-                color=$(tput setaf 1)
+                # color=$(tput setaf 1)
                 # color=Tred
                 ;;
             *'to be committed:'*)
                 committed='!'
-                color=$(tput setaf 190) # LIME YELLOW
+                # color=$(tput setaf 190) # LIME YELLOW
                 # color=Tpurple # PURPLE
                 ;;
             *'Untracked files:') # CYAN
                 untracked='?'
-                color=$(tput setaf 6)
+                # color=$(tput setaf 6)
                 # color=Tcyan
                 ;;
             *'new file:'*) # YELLOW
                 newfile='+'
-                color=$(tput setaf 3)
+                # color=$(tput setaf 3)
                 # color=Tyellow
                 ;;
             *'Your branch is ahead of '*) # BLUE
                 ahead='^'
-                color=$(tput setaf 4)
+                # color=$(tput setaf 4)
                 # color=Tblue
                 ;;
             *'Your branch is behind '*) # MAGENTA
                 behind='v'
-                color=$(tput setaf 5)
+                # color=$(tput setaf 5)
                 # color=Tmagenta
                 ;;
             *renamed:*) # RED
                 renamed='>'
-                color=$(tput setaf 1)
+                # color=$(tput setaf 1)
                 # color=Tred
                 ;;
             *) ;;
         esac
     done < <(printf %s "$1")
-    bits=$dirty$committed$deleted$untracked$newfile$ahead$renamed$behind
+    IFS=$OLDIFS
+    # echo -n $dirty
+    bits="$dirty$committed$deleted$untracked$newfile$ahead$renamed$behind"
     if [[ -z "$bits" ]]; then # GREEN
-        color=$(tput setaf 2)
+        # color=$(tput setaf 2)
         # color=Tgreen
+        : # NOP
     else
+        # echo -n $bits
         bits="${bits}"
     fi
-    IFS=$OLDIFS
 }
 
-RESET=$(tput sgr0)
+# RESET=$(tput sgr0)
 get_full_status() {
     # local -n status_str=$1
     # Do this if not in Home directory
@@ -81,13 +85,16 @@ get_full_status() {
         git_status="$(git status 2>&1)"
         # printf '%s' "$git_status"
         if [[ "$git_status" != *'not a git repository'* ]]; then
+            local COLOR BITS
             parse_status "$git_status" COLOR BITS
             # printf '%s' "$COLOR($(git_branch)$BITS)$RESET"
             # printf 'branch: %s, bits: %s' "$(git_branch)" "$BITS"
             # printf '%s' "$($COLOR \($(git_branch)$BITS\))"
             # printf '%s' "($(git_branch)$BITS)"
-            plain_text='('$(git_branch)$BITS')'
-            printf '%s' "$(Bblue $plain_text)"
+            # plain_text='('$(git_branch)$BITS')'
+            branch_text="$(Bblue '('$(git_branch))"
+            bits_text="$(Bmagenta $BITS)$(Bblue ')')"
+            printf '%s' "$branch_text$bits_text"
             # printf '[\e[0;36m]'"($(git_branch)$BITS)"'[\e[m]'
             # printf "\[\e[0;36m\]($(git_branch)$BITS)\[\033[0m\]"
             # shopt -s checkwinsize
