@@ -60,11 +60,14 @@ toupper () {
 }
 
 addkey () {
+    local identity_file
     if [ -z "$1" ]; then
-        ssh-add -q ~/.ssh/sanoysyg_rsa.pem
+        identity_file=~/.ssh/sanoysyg_rsa.pem
     else
-        ssh-add $1
+        identity_file=$1
     fi
+    # Check and add the identity file if it's not added already
+    ssh-add -l |grep -q `ssh-keygen -lf $identity_file  | awk '{print $2}'` || ssh-add -q $identity_file
 }
 
 tproj () {
