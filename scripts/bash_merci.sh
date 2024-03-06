@@ -5,7 +5,7 @@ cdce () {
 }
 
 cdcee () {
-    cd ~/WorkWork/MyProjects/cpp/class_engine/bin/32/Debug
+    cd ~/WorkWork/MyProjects/cpp/class_engine/bin/64/Debug
 }
 
 cddot () {
