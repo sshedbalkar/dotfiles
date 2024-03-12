@@ -43,6 +43,18 @@ Useful Shortcuts:
         "when": "config.cpp_proj_configured"
     },
     {
+        "key": "ctrl+shift+alt+3",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Valgrind_run",
+        "when": "config.cpp_proj_configured"
+    },
+    {
+        "key": "ctrl+shift+alt+4",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Process_kill",
+        "when": "config.cpp_proj_configured"
+    },
+    {
         "key": "ctrl+s",
         "command": "workbench.action.tasks.runTask",
         "args": "cpp_format_file",
@@ -75,5 +87,9 @@ Useful Shortcuts:
         //"command": "-workbench.action.toggleMaximizeEditorGroup && editor.action.fontZoomIn",
         "command": "-workbench.action.toggleMaximizeEditorGroup ",
         "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+    },
+    {
+        "key": "shift+alt+e shift+alt+2",
+        "command": "workbench.action.editorLayoutThreeColumns"
     }
 ]

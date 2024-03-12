@@ -35,6 +35,11 @@
 |`ctrl+k ctrl+m`|toggleMaximizeEditorGroup|
 |`ctrl+up`|gotoNextPreviousMember.previousMember|
 |`ctrl+down`|gotoNextPreviousMember.nextMember|
+|`ctrl+shift+e ctrl+shift+2`|editorLayoutThreeColumns|
+
+## Docs
+- [Tasks.json](https://code.visualstudio.com/docs/editor/tasks)
+- [Multi-cursor editing](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor)
 
 ## Extensions
 - [CPP Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
