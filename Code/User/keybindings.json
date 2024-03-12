@@ -89,7 +89,7 @@ Useful Shortcuts:
         "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
     },
     {
-        "key": "shift+alt+e shift+alt+2",
+        "key": "shift+alt+e shift+alt+3",
         "command": "workbench.action.editorLayoutThreeColumns"
     }
 ]
