@@ -63,5 +63,9 @@
         "variable"
     ],
     "gotoNextPreviousMember.previousMember": "ctrl+up",
-    "gotoNextPreviousMember.nextMember": "ctrl+down"
+    "gotoNextPreviousMember.nextMember": "ctrl+down",
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ]
 }

@@ -35,7 +35,7 @@
 |`ctrl+k ctrl+m`|toggleMaximizeEditorGroup|
 |`ctrl+up`|gotoNextPreviousMember.previousMember|
 |`ctrl+down`|gotoNextPreviousMember.nextMember|
-|`ctrl+shift+e ctrl+shift+3`|editorLayoutThreeColumns|
+|`alt+shift+e alt+shift+3`|editorLayoutThreeColumns|
 
 ## Docs
 - [Tasks.json](https://code.visualstudio.com/docs/editor/tasks)
