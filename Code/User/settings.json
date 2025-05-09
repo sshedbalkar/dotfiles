@@ -1,4 +1,17 @@
 {
+    "github.copilot.advanced": {
+
+    },
+    "github.copilot.chat.agent.runTasks": false,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "github.copilot.chat.followUps": "never",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "cmake.configureOnOpen": true,
     "linesinfostatusbar.totalDisplayFormat": "Total: %d",
     "cmake.options.statusBarVisibility": "visible",
@@ -67,5 +80,8 @@
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": false
+    }
 }
